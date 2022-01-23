@@ -7,6 +7,7 @@ target
 /.project
 /.settings
 /RUNNING_PID
+/dist
 # Mac
 .DS_Store
 /null
