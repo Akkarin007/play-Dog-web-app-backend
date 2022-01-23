@@ -1,0 +1,130 @@
+
+@media only screen and (min-width: 100px) {
+    .bg-light {
+        --bs-bg-opacity: 1;
+        background-color: rgba(var(--bs-light-rgb),var(--bs-bg-opacity)) !important;
+    }
+    .playCards {
+        overflow: auto;
+    }
+    .playCards .col {
+        width: 15%;
+    }
+    
+    .front {
+        font-size: 1px;
+    }
+
+    .cards {
+        align-items: center;
+        border-radius: 20px !important;
+        max-width: 200px !important;
+        overflow: auto;
+    }
+    .card {
+        align-items: center;
+    }
+    
+    .board {
+        background-color: rgb(236, 236, 236);
+        padding-left: 10%;
+        padding-right: 10%;
+        padding-top: 2%;
+        padding-bottom: 2%;
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-top: 2%;
+        margin-bottom: 5%;
+        border: 3px solid grey;
+        border-radius: 5px;
+        background-color: rgb(236, 236, 236);
+        padding: 20px;
+    }
+
+    .customTable {
+        margin-left: auto;
+        margin-right: auto;
+        border: 3px solid rgb(168, 168, 168);
+        border-radius: 5px;
+        background-color: rgb(255, 255, 255);
+        margin-bottom: 2%;
+    }
+    .crads img {
+        
+        
+        overflow: auto;
+        border-radius: 20px !important;
+    }
+}
+
+
+
+@media only screen and (min-width: 1000px) {
+    .bg-light {
+        --bs-bg-opacity: 1;
+        background-color: rgba(var(--bs-light-rgb),var(--bs-bg-opacity)) !important;
+    }
+    
+    .playCards {
+    
+    }
+    
+    .playCards .col {
+        width: 15%;
+    }
+
+    .cellHeader {
+        padding-top: 25px;
+        width: auto;
+        text-align: center;
+    }
+
+    .customTable {
+        align-items: center;
+        border: none;
+    }
+    
+    .board {
+
+    }
+
+  
+    .field {
+            cursor: pointer;
+            border: 0px solid transparent;
+            background-color: transparent;
+            height: 50px;
+            width: 50px;
+            box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+            border-radius: 15em;
+            padding: 0;
+    }
+    
+
+    .field:hover {
+        cursor: pointer;
+        background-color: goldenrod;
+        height: 50px;
+        width: 50px;
+        box-shadow: 0 6px 6px rgba(0, 0, 0, 0.6);
+        border-radius: 15em;
+    }
+
+    .cards {
+        align-items: center;
+        border-radius: 20px !important;
+        max-width: 200px !important;
+    }
+    .card {
+        align-items: center;
+    }
+
+    .front {
+        font-size: 1em;
+    }
+    
+    .crads img {
+        
+        border-radius: 20px !important;
+    }
+}

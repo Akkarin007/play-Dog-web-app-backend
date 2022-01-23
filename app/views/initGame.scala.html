@@ -1,0 +1,106 @@
+@(controller: dog.controller.ControllerComponent.ControllerTrait)
+
+@main("Dog") {
+
+    <div class="container py-4">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                <img src="@routes.Assets.versioned("images/info/logo.jpg")" loading="lazy" width="100" height="33">
+                <span class="fs-4" style="margin-left: 10px;">Dog - About the Game</span>
+            </a>
+    
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="/about" class="nav-link active" aria-current="page">Home</a></li>
+                <li class="nav-item"><a href="/initGame" class="nav-link">StartGame</a></li>
+                <li class="nav-item"><a href="/" class="nav-link">init Game</a></li>
+                <li class="nav-item"><a href="/undo" class="nav-link">undo</a></li>
+                <li class="nav-item"><a href="/redo" class="nav-link">redo</a></li>
+                <li class="nav-item"><a href="/" class="nav-link">quit_game</a></li>
+            </ul>
+        </header>
+       
+        <div class="px-4 pt-5 my-5 text-center border-bottom">
+            <h1 class="display-4 fw-bold">Current Stats!</h1>
+            <div class="col-lg-6 mx-auto">
+                <p class="lead mb-4">Have fun!</p>
+            </div>
+            <div class="overflow-hidden" style="max-height: 60vh;">
+                <div class="container px-5 board">
+                    <table class="table table-striped table-sm customTable">
+                        <thead>
+                            <tr>
+                                <th>PlayerName</th>
+                                <th>inHouse</th>
+                                <th>Color</th>
+                                <th>Goal</th>
+                            </tr>
+                        </thead>
+                        <tbody id="stats_table">
+                            @for(i <- 0 until controller.gameState.players._1.indices.size) { <tr>
+                                <td>@controller.gameState.players._1(i).nameAndIdx._1</td>
+                                <td>@controller.gameState.players._1(i).inHouse.size</td>
+                                <td>@controller.gameState.players._1(i).color</td>
+                                <td>@controller.gameState.players._1(i).garage</td>
+                                </tr>
+                                }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <table class="customTable">
+        <thead>
+            <tr>
+                @for(i <- 0 until controller.gameState.board.size) { 
+                    
+                    <th>
+                        
+                    <div class="cellHeader">
+            
+                    </div>
+                    </th>
+
+                    }
+            </tr>
+        </thead>
+        <tbody>
+            @for(i <- 0 until controller.gameState.board.size) {         
+                <td>
+                    <div >
+
+                        <button id="board@i" class="field"><img src="@routes.Assets.versioned("images/icons/field.png")"
+                            class="img-fluid  shadow-lg" alt="Example image" loading="lazy"
+                                ></button>
+
+                    </div>                
+                </td>
+            }
+        </tbody>
+    </table>
+
+    <div class="container py-4">
+        <div class="px-4 pt-5 my-5 text-center border-bottom">
+            <h1 class="display-4 fw-bold" id="player_name">CurrentPlayerCards: @controller.gameState.actualPlayer.nameAndIdx._1</h1>
+            <div class="col-lg-6 mx-auto">
+                <p class="lead mb-4">Choose Your Cards</p>
+
+            </div>
+
+            <div class="overflow" >
+                <div class="container px-5">
+                    <div class="album py-5 bg-light">
+                        <div class="container">
+                            <div class="row playCards row-cols-1 row-cols-sm-2 row-cols-md-3 g-4" id="player_cards">
+
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
+</div>
+
+}

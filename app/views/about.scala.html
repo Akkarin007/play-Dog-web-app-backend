@@ -1,0 +1,242 @@
+@()
+
+@main("About Dog") {
+
+    <head>
+        <title>Dog - About the Game</title>
+        <meta charset="UTF-8">
+        <link rel="shortcut icon" href="@routes.Assets.versioned("images/Dog_Game.png")" />
+    </head>
+    
+    <body>
+        <div class="container py-4">
+            <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+                <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                    <img src="@routes.Assets.versioned("images/info/logo.jpg")" loading="lazy" width="100" height="33">
+                    <span class="fs-4" style="margin-left: 10px;">Dog - About the Game</span>
+                </a>
+    
+                <ul class="nav nav-pills">
+                    <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
+                    <li class="nav-item"><a href="/initGame" class="nav-link">StartGame</a></li>
+                    <li class="nav-item"><a href="/" class="nav-link">init Game</a></li>
+                </ul>
+            </header>
+    
+            <div class="px-4 pt-5 my-5 text-center border-bottom">
+                <h1 class="display-4 fw-bold">What is Dog?</h1>
+                <div class="col-lg-6 mx-auto">
+                    <p class="lead mb-4">Dog is a board game for 2 to 6 players. The game is like the classic German board
+                        game
+                        "Mensch ärgere dich nicht".
+                        In order to win you must bring your 4 game pieces to safety. The main difference is that the pieces
+                        are
+                        not moved with dices.
+                        They are moved with the help of cards.</p>
+    
+                </div>
+                <div class="overflow-hidden" style="max-height: 60vh;">
+                    <div class="container px-5">
+                        <img src="@routes.Assets.versioned("images/info/dogInReal.jpg")"
+                            class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" loading="lazy" width="700"
+                            height="500">
+                    </div>
+                </div>
+            </div>
+    
+            <div class="px-4 pt-5 my-5 text-center border-bottom">
+                <h1 class="display-4 fw-bold">Gameplay:</h1>
+                <div class="col-lg-6 mx-auto">
+                    <p class="lead mb-4">The game starts with the first player playing a card. Its effect is then executed.
+                        After playing a card the player does not get to draw a new card.
+                        Then the next player plays a card and so forth. When a player can not get a game piece out of home,
+                        he
+                        is not able to play this round. If all cards are used the round ends. </p>
+                    <p class="lead mb-4">In the next round each player gets new cards and another round is played. This
+                        pattern
+                        repeats itself until a player has moved all his game pieces into the garage.</p>
+    
+                    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+                        <button type="button" class="btn btn-outline-light front">
+                            <img src="@routes.Assets.versioned("images/icons/play.png")" class="rounded-3 shadow-lg mb-4"
+                                width="100" height="100">
+                        </button>
+                        <button type="button" class="btn btn-outline-light front">
+                            <img src="@routes.Assets.versioned("images/icons/forward.png")"
+                                class="rounded-3 shadow-lg mb-4" width="100" height="100">
+                        </button>
+                        <button type="button" class="btn btn-outline-light front">
+                            <img src="@routes.Assets.versioned("images/icons/backward.png")"
+                                class="rounded-3 shadow-lg mb-4" width="100" height="100">
+                        </button>
+                        <button type="button" class="btn btn-outline-light front">
+                            <img src="@routes.Assets.versioned("images/icons/swap.png")" class="rounded-3 shadow-lg mb-4"
+                                width="100" height="100">
+                        </button>
+                        <button type="button" class="btn btn-outline-light front">
+                            <img src="@routes.Assets.versioned("images/icons/burn.png")" class="rounded-3 shadow-lg mb-4"
+                                width="100" height="100">
+                        </button>
+                        <button type="button" class="btn btn-outline-light front">
+                            <img src="@routes.Assets.versioned("images/icons/move.png")" class="rounded-3 shadow-lg mb-4"
+                                width="100" height="100">
+                        </button>
+                        <button type="button" class="btn btn-outline-light front">
+                            <img src="@routes.Assets.versioned("images/icons/joker.png")" class="rounded-3 shadow-lg mb-4"
+                                width="100" height="100">
+                        </button>
+                    </div>
+                </div>
+                <div class="overflow-hidden" style="max-height: 30vh;">
+                    <div class="container px-5">
+                        <img src="@routes.Assets.versioned("images/Dog_Game.png")"
+                            class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" loading="lazy" width="700"
+                            height="500">
+                    </div>
+                </div>
+            </div>
+    
+    
+    
+            <div class="px-4 pt-5 my-5 text-center border-bottom">
+                <h1 class="display-4 fw-bold">Cards:</h1>
+                <div class="col-lg-6 mx-auto">
+                    <p class="lead mb-4">
+                    <ul>
+                        <li>The game is played with 15 different cards with the following effects:</li>
+                        <li>The card play, 1, 11 and 13 can be used to get a game piece from home into the game. 1, 11 and
+                            13
+                            also move the piece 1 or 11 fields forward.</li>
+                        <li>The card 4 can also be used to move backwards.</li>
+                        <li>The swap card allows you to exchange one of your cards with one of your opponents.</li>
+                        <li>The joker card can obtain one of the above card effects.</li>
+                    </ul>
+                    </p>
+    
+    
+                </div>
+                <div class="overflow-hidden" style="max-height: 40vh;">
+                    <div class="container px-5">
+    
+                        <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+                            <div class="feature col">
+                                <div class="feature-icon">
+                                    <img src="@routes.Assets.versioned("images/cards/1 11 play.png")"
+                                        class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" loading="lazy"
+                                        width="80" height="50">
+                                </div>
+                                <h2>Play</h2>
+                                <p>The card play, 1, 11 and 13 can be used to get a game piece from home into the game. 1,
+                                    11 and 13
+                                    also move the piece 1 or 11 fields forward.</p>
+                                <a href="#" class="icon-link">
+                                    Call to action
+                                </a>
+                            </div>
+                            <div class="feature col">
+                                <div class="feature-icon">
+                                    <img src="@routes.Assets.versioned("images/cards/4.png")"
+                                        class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" loading="lazy"
+                                        width="80" height="50">
+                                </div>
+                                <h2>4 + -</h2>
+                                <p>The card 4 can also be used to move backwards.</p>
+                                <a href="#" class="icon-link">
+                                    Call to action
+                                    <svg class="bi" width="1em" height="1em">
+                                        <use xlink:href="#chevron-right"></use>
+                                    </svg>
+                                </a>
+                            </div>
+                            <div class="feature col">
+                                <div class="feature-icon">
+                                    <img src="@routes.Assets.versioned("images/cards/swapCard.png")"
+                                        class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" loading="lazy"
+                                        width="80" height="50">
+                                </div>
+                                <h2>Swap</h2>
+                                <p>The swap card allows you to exchange one of your cards with one of your opponents.</p>
+                                <a href="#" class="icon-link">
+                                    Call to action
+                                    <svg class="bi" width="1em" height="1em">
+                                        <use xlink:href="#chevron-right"></use>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+    
+                    </div>
+                </div>
+            </div>
+    
+    
+    
+            <div class="px-4 pt-5 my-5 text-center border-bottom">
+                <h1 class="display-4 fw-bold">Rules:</h1>
+                <div class="col-lg-6 mx-auto">
+                    <p class="lead mb-4">
+                    <ol>
+                        <li>Before a round starts each player gets a set number of cards. </li>
+                        <li>Pieces are moved by the number on the card which is played. If a card with the value 5 is played
+                            the
+                            player can move a piece by 5 fields.
+                            While moving all game pieces can be skipped, but their fields are counted.</li>
+                        <li>There can only be one game piece on a field. When another game piece moves onto an occupied
+                            field,
+                            the occupying piece gets moved back to home.
+                            Furthermore, all game pieces which are overtaken with the card 7 also must be moved back to
+                            home.
+                        </li>
+                        <li>When a card is played you must move a piece by the provided number. When a player can move into
+                            the
+                            garage with a 5 but plays a 7, he must complete another round around the board.</li>
+                        <li>Game pieces which have reached the garage can only be moved forward. Game pieces cannot be
+                            overtaken
+                            in the garage.</li>
+                        <li>If a player has moved all his pieces into the garage, he has won the game.</li>
+                        </ul>
+                        </p>
+                </div>
+                <div class="overflow-hidden" style="max-height: 30vh;">
+                    <div class="container px-5">
+                        <img src="@routes.Assets.versioned("images/Dog_Game.png")"
+                            class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" loading="lazy" width="700"
+                            height="500">
+                    </div>
+                </div>
+    
+            </div>
+    
+            <div class="px-4 pt-5 my-5 text-center border-bottom" style="background-color: lightgrey;">
+                <h1 class="display-4 fw-bold">Interested?</h1>
+                <div class="col-lg-6 mx-auto">
+                    <div
+                        class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                        <div class="col p-4 d-flex flex-column position-static" style="background-color: white;">
+                                <strong class=" d-inline-block mb-2 text-primary">Dog</strong>
+                            <h3 class="mb-0">Dog with Playframework</h3>
+                            <div class="mb-1 text-muted">Nov 1</div>
+                            <p class="card-text mb-auto">You want to contribute to our project?</p>
+                            <a href="https://github.com/Akkarin007/play-Dog-web-app" class="stretched-link">Checkout our
+                                Github repository</a>
+                        </div>
+                        <div class="col-auto d-none d-lg-block">
+                            <img src="@routes.Assets.versioned("images/github.png")"
+                                class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" loading="lazy"
+                                width="200" height="250">
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+    
+    
+            <!--
+                <div>
+                    <h3>Screenshots:</h3>
+                    <img src="@routes.Assets.versioned("images/Dog_Game.png")" alt="Dog board" title="Board Dog" width="900" height=auto/>
+                </div>
+                -->
+    </body>
+    
+}

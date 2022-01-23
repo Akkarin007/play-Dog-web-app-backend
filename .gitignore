@@ -1,2 +1,76 @@
-*.class
+logs
+target
+/.bsp
+/.idea
+/.idea_modules
+/.classpath
+/.project
+/.settings
+/RUNNING_PID
+# Mac
+.DS_Store
+/null
+node_modules
+/.bloop
+/.metals
+# Eclipse
+bin/
+.settings/
+.classpath
+
+# Intellij
+.idea/
+target/
+
+# Maven
+log/
+# Gradle
+.gradle/
+build/
+pom.xml
+
+# sbt
+.cache
+.history
+.lib/
+dist/*
+target/
+lib_managed/
+src_managed/
+project/boot/
+project/plugins/project/
+project/target/
+project/project/
+logs/
+project/.sbtserver
+.sbtserver/
+
+# Scala-IDE specific
+.scala_dependencies
+.worksheet
+
+# Sonar
+.sonar/
+
+# Application
+Dog.log
+
+# Linux
+_linux/
+
+# AutoAdd
+codestyles/
+/ignore.xml
+/editor.xml
+/ide.general.xml
+/debugger.xml
+/scala.xml
+/keymaps/
+/find.xml
+/.metadata/
+
+
+# Log
 *.log
+.xml
+.json

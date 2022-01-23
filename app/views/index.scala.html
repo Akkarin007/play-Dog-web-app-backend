@@ -1,0 +1,43 @@
+@()
+
+@main("Dog") {
+    <div class="container py-4">
+      <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+          <img src="@routes.Assets.versioned("images/info/logo.jpg")" loading="lazy" width="100" height="33">
+          <span class="fs-4" style="margin-left: 10px;">Dog - About the Game</span>
+        </a>
+    
+        <ul class="nav nav-pills">
+          <li class="nav-item"><a href="/about" class="nav-link active" aria-current="page">Home</a></li>
+          <li class="nav-item"><a href="/initGame" class="nav-link">StartGame</a></li>
+          <li class="nav-item"><a href="/" class="nav-link">init Game</a></li>
+        </ul>
+      </header>
+    </div>
+    
+    <div class="modal modal-sheet position-static d-block bg-secondary py-5" tabindex="-1" role="dialog" id="modalSheet">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content rounded-6 shadow">
+          <div class="modal-header border-bottom-0">
+            <h1>Welcome to Dog!</h1>
+          </div>
+          <div class="modal-body py-0">
+            <p>Change your game preferences here!</p>
+          </div>
+          <div class="modal-footer flex-column border-top-0 ">
+            <form action=/newGame>
+              <label for="lastName" class="form-label front">AmountPieces</label>
+              <input type="text" class="form-control front" id="amountPieces" name="amountPieces" value="4" placeholder="" required="">
+              <label for="lastName" class="form-label front">amountCards</label>
+              <input type="text" class="form-control front" id="amountCards" name="amountCards" value="6" placeholder="" required="">
+              <label for="lastName" class="form-label front">sizeBoard</label>
+              <input type="text" class="form-control front" id="sizeBoard" name="sizeBoard" value="20" placeholder="" required="">
+              <br></br>
+            <button class="w-100 btn btn-primary btn-lg front" type="submit">Start Game</button>
+            <br></br>
+          </div>
+        </div>
+      </div>
+    </div>
+}

@@ -1,0 +1,33 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# https://www.playframework.com/documentation/latest/ScalaRouting
+# ~~~~
+
+# An example controller showing a sample home page
+GET     /                           controllers.HomeController.index()
+
+GET     /websocket                  controllers.HomeController.socket
+GET     /isOwnPiece/:fieldIdx       controllers.HomeController.isOwnPiece(fieldIdx: String)         
+GET     /about                      controllers.HomeController.about
+GET     /newGame                    controllers.HomeController.newGame(amountPieces: Int, amountCards: Int, sizeBoard: Int)
+GET     /initGame                   controllers.HomeController.initGame
+GET     /Board                      controllers.HomeController.printBoard()
+GET     /load                       controllers.HomeController.load()
+GET     /save                       controllers.HomeController.save()
+GET     /redo                       controllers.HomeController.redo()
+GET     /undo                       controllers.HomeController.undo()
+GET     /playerhands                controllers.HomeController.playerhands()
+
+GET     /selectCardWithOption              controllers.HomeController.selectCardWithOption(cardNum: Int, cardOption:Int)
+GET     /createPlayers/:name1/:name2/:name3/:name4/:amountPieces/:amountCards  controllers.HomeController.createPlayers(name1: String, name2: String, name3: String, name4: String, amountPieces: Int, amountCards: Int)
+
+POST     /selectSwap    controllers.HomeController.selectSwap
+
+GET     /selectCard    controllers.HomeController.selectCard(cardNum: Int)
+
+POST     /selectCardAndPiece   controllers.HomeController.selectCardAndPiece
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+
+# Json Requests
+GET     /json                       controllers.HomeController.getJsonBoard
