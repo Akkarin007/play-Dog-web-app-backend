@@ -216,8 +216,8 @@ class HomeController @Inject()(val controllerComponents: ControllerComponents)(i
           idx <- 0 until controller.gameState.players._1.size,
         } yield {
           Json.obj(
-            "player index" -> JsNumber(idx),
-            "name" -> gameLobbies(lobbyID).playerNames(idx),
+            "playerIdx" -> JsNumber(idx),
+            "name" -> controller.gameState.players._1(idx).nameAndIdx._1,
             "color" -> controller.gameState.players._1(idx).color,
             "homePosition" -> JsNumber(controller.gameState.players._1(idx).homePosition),
             "pieces" -> Json.toJson(
