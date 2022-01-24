@@ -276,7 +276,9 @@ function loadJsonAndUpdateDom(result) {
 
 
 function connectWebSocket() {
-    websocket = new WebSocket("ws://localhost:9000/websocket");
+    const localhost = 'ws://localhost:9000/websocket'
+    const prod_host = 'wss://evening-cove-34964.herokuapp.com/websocket'
+    websocket = new WebSocket(prod_host);
     websocket.setTimeout
     websocket.onopen = function(event) {
         console.log("Connected to Websocket");
