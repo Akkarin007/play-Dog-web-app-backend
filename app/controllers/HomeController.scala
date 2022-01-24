@@ -274,7 +274,7 @@ class HomeController @Inject()(val controllerComponents: ControllerComponents)(i
             "lobbyID" -> key,
             "lobbyInGame" -> value.running,
             "lobbySize" -> value.lobbySize,
-            "lobby players" -> Json.toJson(
+            "lobbyPlayers" -> Json.toJson(
               for {
                 name <- value.playerNames
               } yield {
