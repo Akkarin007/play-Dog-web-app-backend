@@ -365,8 +365,10 @@ class HomeController @Inject()(val controllerComponents: ControllerComponents)(i
           val cardNum = (msgObject \ "cardNum").as[Int]
           val pieceNum = (msgObject \ "pieceNum").as[Int]
           val size = (msgObject \ "size").as[Int]
-          gameLobbies(lobbyID).controller.initGame(gameLobbies(lobbyID).playerNames, pieceNum, cardNum, size)
-          gameLobbies(lobbyID).running = true
+          if (!gameLobbies(lobbyID).running) {
+            gameLobbies(lobbyID).controller.initGame(gameLobbies(lobbyID).playerNames, pieceNum, cardNum, size)
+            gameLobbies(lobbyID).running = true
+          }
           println("Received Json: Start Game")
           out ! lobbyListToJson().toString()
           out ! boardToJson(lobbyID).toString()
