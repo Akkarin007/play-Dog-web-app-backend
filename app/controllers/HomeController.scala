@@ -41,24 +41,24 @@ class HomeController @Inject()(val controllerComponents: ControllerComponents)(i
     var playerNames = List[String]()
 
     def addPlayer(playername: String): Unit = {
-      if (!playerNames.contains(playername)) {
-        playerNames :+ playername
+      if (!playerNames.contains(playername) && playerNames.size < lobbySize) {
+        playerNames = playerNames :+ playername
       }
     }
 
     def removePlayer(playername:String): Unit = {
-      if (playerNames.contains(playername)) {
-        var new_list = playerNames filter (n => n != playername)
+      if (playerNames.contains(playername) && playerNames.size <= lobbySize) {
+        var new_list = playerNames.filter(_ != playername)
         playerNames = new_list
       }
     }
   }
 
-  var playerNames = List("Player1","Player2","Player3","Player4")
+  var playerNames = List("Player1","Player2","Player3")
   addLobby("Default")
-  gameLobbies("Default").controller.initGame(List("Player1","Player2","Player3","Player4"), 4, 6, 20)
+  gameLobbies("Default").controller.initGame(playerNames, 4, 6, 20)
   gameLobbies("Default").running = true
-  gameLobbies("Default").playerNames = List("Player1","Player2","Player3","Player4")
+  gameLobbies("Default").playerNames = playerNames
   
   def printDog() = gameLobbies("Default").controller.toStringBoard + "/n" + gameLobbies("Default").controller.toStringGarage + "/n" + gameLobbies("Default").controller.toStringPlayerHands + "/n" + gameLobbies("Default").controller.lastMessage
 
@@ -206,8 +206,8 @@ class HomeController @Inject()(val controllerComponents: ControllerComponents)(i
     val controller = gameLobbies(lobbyID).controller
     return Json.obj(
       // board data
+      "lobbyID" -> lobbyID,
       "boardSize" -> JsNumber(controller.gameState.board.size),
-
       // player data
       "playerNumber" -> JsNumber(controller.gameState.players._1.size),
       "currentPlayer" -> JsNumber(controller.gameState.actualPlayer.nameAndIdx._2),
@@ -274,7 +274,7 @@ class HomeController @Inject()(val controllerComponents: ControllerComponents)(i
             "lobbyID" -> key,
             "lobbyInGame" -> value.running,
             "lobbySize" -> value.lobbySize,
-            "lobby players" -> Json.toJson(
+            "lobbyPlayers" -> Json.toJson(
               for {
                 name <- value.playerNames
               } yield {
