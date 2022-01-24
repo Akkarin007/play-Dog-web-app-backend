@@ -330,6 +330,9 @@ class HomeController @Inject()(val controllerComponents: ControllerComponents)(i
           case e: JsResultException => 
         }
         if(msgType == "swap") {
+          if (!checkLobbyID(lobbyID)) {
+            return
+          }
           val cardNum = (msgObject \ "cardNum").as[String]
           val otherPlayer = (msgObject \ "otherPlayer").as[Int]
           val pieceNum1 = (msgObject \ "pieceNum1").as[Int]
@@ -347,6 +350,9 @@ class HomeController @Inject()(val controllerComponents: ControllerComponents)(i
           out ! boardToJson(lobbyID).toString()
         }
         if(msgType == "request") {
+          if (!checkLobbyID(lobbyID)) {
+            return
+          }
           val cardNum = (msgObject \ "cardNum").as[String]
           val cardOption = (msgObject \ "cardOption").as[String]
           val pieceNum = (msgObject \ "pieceNum").as[Int]
@@ -360,6 +366,9 @@ class HomeController @Inject()(val controllerComponents: ControllerComponents)(i
           out ! boardToJson(lobbyID).toString()
         }
         if(msgType == "startGame") {
+          if (!checkLobbyID(lobbyID)) {
+            return
+          }
           val cardNum = (msgObject \ "cardNum").as[Int]
           val pieceNum = (msgObject \ "pieceNum").as[Int]
           val size = (msgObject \ "size").as[Int]
@@ -382,12 +391,18 @@ class HomeController @Inject()(val controllerComponents: ControllerComponents)(i
           eventPublisher.newEvent(new LobbyUpdate)
         }
         if(msgType == "joinLobby") {
+          if (!checkLobbyID(lobbyID)) {
+            return
+          }
           val name = (msgObject \ "playerName").as[String]
           gameLobbies(lobbyID).addPlayer(name)
           listenTo(gameLobbies(lobbyID).controller)
           eventPublisher.newEvent(new LobbyUpdate)
         }
         if(msgType == "leaveLobby") {
+          if (!checkLobbyID(lobbyID)) {
+            return
+          }
           val name = (msgObject \ "playerName").as[String]
           gameLobbies(lobbyID).removePlayer(name)
           if (gameLobbies(lobbyID).playerNames.length == 0) {
@@ -398,11 +413,17 @@ class HomeController @Inject()(val controllerComponents: ControllerComponents)(i
           }
         }
         if(msgType == "endGame") {
+          if (!checkLobbyID(lobbyID)) {
+            return
+          }
           removeLobby(lobbyID)
           eventPublisher.newEvent(new RemovedLobby(lobbyID))
         }
         
         if(msgType == "getBoard") {
+          if (!checkLobbyID(lobbyID)) {
+            return
+          }
           out ! boardToJson(lobbyID).toString()
         }
         println("Received Json: " + msg + "trigger Event")
@@ -415,6 +436,9 @@ class HomeController @Inject()(val controllerComponents: ControllerComponents)(i
     }
 
     def sendJsonToClient(): Unit = {  
+      if (!checkLobbyID(lobbyID)) {
+            return
+      }
       println("Received event from Controller")
       out ! boardToJson(lobbyID).toString()
     }
@@ -431,6 +455,10 @@ class HomeController @Inject()(val controllerComponents: ControllerComponents)(i
       )
       out ! response.toString()
     }
+    def checkLobbyID(lobbyID: String): Bool = {
+      gameLobbies.contains(lobbyID))
+    }
+
   }
 }
 
